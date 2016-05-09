@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Page Content -->
+<div class="content-wrapper">
+	<div class="content-heading">
+       New Feed
+    </div>
+    <div class="row">
+    	<div class="col-xs-12">
+			<form method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+       	</div>
+    </div>
+</div>
+{% endblock %}

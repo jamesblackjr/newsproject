@@ -12,7 +12,7 @@ class Feed(models.Model):
 class Article(models.Model):
     feed = models.ForeignKey(Feed)
     title = models.CharField(max_length=200)
-    url = models.URLField()
+    url = models.URLField(verbose_name="URL")
     description = models.TextField()
     publication_date = models.DateTimeField()
     

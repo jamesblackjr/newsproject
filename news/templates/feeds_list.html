@@ -9,13 +9,13 @@
              	<a href="{% url 'new-feed' %}" class="btn btn-default">New Feed</a>
           	</div>
        	</div>
-       	News Articles
+       News Feeds
     </div>
     <div class="row">
     	<div class="col-xs-12">
 			<ul>
-				{% for article in articles %}
-					<li><a href="{{ article.url }}" title="{{ article.title }}">{{ article.title }}</a></li>
+				{% for feed in feeds %}
+					<li><a href="{{ feed.url }}" title="{{ feed.title }}">{{ feed.title }}</a></li>
 				{% endfor %}
 			</ul>
        	</div>

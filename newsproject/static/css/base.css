@@ -899,7 +899,7 @@ _:-ms-lang(x),
 }
 .topnavbar .navbar-header .brand-logo > img,
 .topnavbar .navbar-header .brand-logo-collapsed > img {
-  margin: 0 auto;
+  margin: 0;
 }
 .topnavbar .navbar-header .brand-logo {
   display: block;

@@ -153,3 +153,12 @@ body,
   background-color: #ffffff;
   color: #515253;
 }
+/* ========================================================================
+   Component: buttons
+ ========================================================================== */
+.btn-primary {
+  background-color: #564aa3;
+}
+.btn-primary:hover {
+  background-color: #564aa3;
+}

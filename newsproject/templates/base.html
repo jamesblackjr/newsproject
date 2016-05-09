@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>My News Website</title>
+		<title>The News Website</title>
 		
 		<meta name="description" content="My Awesome News Website.">
 		<meta name="author" content="Mr. James A. Black Jr. (mrdesigner@jamesblackjr.com)">
@@ -34,15 +34,21 @@
 			<header class="topnavbar-wrapper">
 				<nav role="navigation" class="navbar topnavbar">
 		            <div class="navbar-header">
-		               	<a href="#/" class="navbar-brand">
+		               	<a href="#" class="navbar-brand">
 		                  	<div class="brand-logo">
-		                     	<img src="{% static 'img/logo.png' %}" alt="My News Website" class="img-responsive">
+		                     	<img src="{% static 'img/logo.png' %}" alt="The News Website" class="img-responsive">
 		                  	</div>
 		                  	<div class="brand-logo-collapsed">
-		                     	<img src="{% static 'img/logo-single.png' %}" alt="My News Website" class="img-responsive">
+		                     	<img src="{% static 'img/logo-single.png' %}" alt="The News Website" class="img-responsive">
 		                  	</div>
 		               	</a>
 		            </div>
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="{% url 'articles-list' %}">Home</a></li>
+							<li><a href="{% url 'feeds-list' %}">Feeds</a></li>
+						</ul>
+					</div>
 				</nav>
 			</header>
 			
@@ -52,12 +58,12 @@
 	              	<nav data-sidebar-anyclick-close="" class="sidebar">
 	                 	<ul class="nav">
 	                    	<li class="nav-heading">
-	                       		<span>Menu Navigation</span>
+	                       		<span>Feed Navigation</span>
 	                    	</li>
 	                    	<li class="active">
-	                       	 	<a href="#" title="Articles List">
+	                       	 	<a href="{% url 'articles-list' %}" title="News Articles">
 	                          		<em class="fa fa-file-o"></em>
-	                          	  	<span>Articles List</span>
+	                          	  	<span>News Articles</span>
 	                       	 	</a>
 	                    	</li>
 	                 	</ul>
