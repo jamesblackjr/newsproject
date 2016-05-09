@@ -10,15 +10,32 @@
           	</div>
        	</div>
        	News Articles
-    </div>
-    <div class="row">
-    	<div class="col-xs-12">
-			<ul>
-				{% for article in articles %}
-					<li><a href="{{ article.url }}" target="_blank" title="{{ article.title }}">{{ article.title }}</a></li>
+	</div>
+	<div class="row">
+		{% for row in rows %}
+			<div class="col-md-4">
+				{% for entry in row %}
+					<div class="panel">
+                    	<div class="panel-body bg-purple">
+                          	<h3 class="mv-lg">{{entry.title}}</h3>
+                       	</div>
+                       	<div class="panel-body">
+							<p>{{entry.description|safe|truncatewords_html:150}}</p>
+                          	<p class="clearfix">
+                             	<span class="pull-left">
+                                	<small class="mr-sm">{{entry.publication_date}}</small>
+                             	</span>
+                             	<span class="pull-right">
+                                	<small>
+                                   	 	<span><a href="{{entry.url}}" target="_blank" title="Read More">Read More</a></span>
+                                	</small>
+                             	</span>
+                          	</p>
+                       	</div>
+                    </div>
 				{% endfor %}
-			</ul>
-       	</div>
-    </div>
+			</div>
+		{% endfor %}
+	</div>
 </div>
 {% endblock %}

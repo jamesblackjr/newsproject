@@ -6,8 +6,10 @@ from .forms import FeedForm
 def articles_list(request):
     articles = Article.objects.all()
     
+    rows = [articles[x:x+3] for x in range(0, len(articles), 3)]
+    
     context = {
-        'articles': articles,
+        'rows': rows,
     }
     
     return render(request, "articles_list.html", context)
