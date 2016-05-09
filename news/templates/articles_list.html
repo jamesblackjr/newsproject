@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<ul>
-		{% for article in articles %}
-			<li><a href="{{ article.url }}" title="{{ article.title }}">{{ article.title }}</a></li>
-		{% endfor %}
-	</ul>
+<!-- Page Content -->
+<div class="content-wrapper">
+	<div class="content-heading">
+       Articles List
+    </div>
+    <div class="row">
+    	<div class="col-xs-12">
+			<ul>
+				{% for article in articles %}
+					<li><a href="{{ article.url }}" title="{{ article.title }}">{{ article.title }}</a></li>
+				{% endfor %}
+			</ul>
+       	</div>
+    </div>
+</div>
 {% endblock %}

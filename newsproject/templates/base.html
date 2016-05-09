@@ -1,31 +1,86 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>My News App</title>
+		<title>My News Website</title>
 		
 		<meta name="description" content="My Awesome News Website.">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Mr. James A. Black Jr. (mrdesigner@jamesblackjr.com)">
+		<meta name="keywords" content="python, django, jquery, bootstrap, responsive, news, feed, app">
+		
+		<!-- Latest compiled and minified FontAwesome CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+		
+		<!-- Latest Simple Line Icons CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.1/css/simple-line-icons.css">
+		
+		<!-- Latest Animate.css Library -->
+		<link rel="stylesheet" href="{% static 'vendor/animate.css/animate.css' %}">
+		
+		<!-- Latest compiled and minified Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		
+		<!-- Custom CSS overrides and Custom CSS styles -->
+		<link rel="stylesheet" href="{% static 'css/base.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	</head>
 	<body>
-		<div class="container">
-			<header>
-				<!-- TODO Add Header Content -->
+		<div class="wrapper">
+			<!-- Header Navigation -->
+			<header class="topnavbar-wrapper">
+				<nav role="navigation" class="navbar topnavbar">
+		            <div class="navbar-header">
+		               	<a href="#/" class="navbar-brand">
+		                  	<div class="brand-logo">
+		                     	<img src="{% static 'img/logo.png' %}" alt="My News Website" class="img-responsive">
+		                  	</div>
+		                  	<div class="brand-logo-collapsed">
+		                     	<img src="{% static 'img/logo-single.png' %}" alt="My News Website" class="img-responsive">
+		                  	</div>
+		               	</a>
+		            </div>
+				</nav>
 			</header>
 			
-			<nav>
-				<!-- TODO Add Navigation Content -->
-			</nav>
+			<!-- Sidebar Navigation -->
+	        <aside class="aside">
+	           	<div class="aside-inner">
+	              	<nav data-sidebar-anyclick-close="" class="sidebar">
+	                 	<ul class="nav">
+	                    	<li class="nav-heading">
+	                       		<span>Menu Navigation</span>
+	                    	</li>
+	                    	<li class="active">
+	                       	 	<a href="#" title="Articles List">
+	                          		<em class="fa fa-file-o"></em>
+	                          	  	<span>Articles List</span>
+	                       	 	</a>
+	                    	</li>
+	                 	</ul>
+	              	</nav>
+	           	</div>
+		   </aside>
 			
-			<main>
+			<!-- Main Section -->
+			<section>
 				{% block content %}{% endblock %}
-			</main>
+			</section>
 			
+			<!-- Page Footer -->
 			<footer>
-				<!-- TODO Add Footer Content -->
+				<span>&copy; 2016 Designed by <a href="http://www.jamesblackjr.com" title="Mr. James Black Jr.">Mr. James A. Black Jr.</a>&nbsp;&nbsp;All Rights Reserved.</span>
 			</footer>
 		</div>
+		
+		<!-- Latest compiled and minified jQuery & Bootstrap JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		
+		<!-- Custom App JavaScript -->
+		<script src="{% static 'js/app.js' %}"></script>
 	</body>
 </html>
