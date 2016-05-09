@@ -4,9 +4,9 @@ from .forms import FeedForm
 
 # Create your views here.
 def articles_list(request):
-    articles = Article.objects.all()
+    articles = Article.objects.all().order_by('-publication_date')
     
-    rows = [articles[x:x+3] for x in range(0, len(articles), 3)]
+    rows = [articles[x:x+3] for x in range(0, len(articles), 1)]
     
     context = {
         'rows': rows,

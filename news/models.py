@@ -11,6 +11,7 @@ class Feed(models.Model):
         return self.title
         
     def save(self, *args, **kwargs):
+        is_new = self.pk is None
         feed_data = feedparser.parse(self.url)
         
         # Set some fields
@@ -18,19 +19,20 @@ class Feed(models.Model):
             
         super(Feed, self).save(*args, **kwargs)
         
-        for entry in feed_data.entries:
-            article = Article()
-            article.title = entry.title
-            article.url = entry.link
-            article.description = entry.description
+        if is_new:
+            for entry in feed_data.entries:
+                article = Article()
+                article.title = entry.title
+                article.url = entry.link
+                article.description = entry.description
             
-            # Set publication date
-            publication_date = datetime.datetime(*(entry.published_parsed[0:6]))
-            date_string = publication_date.strftime('%Y-%m-%d %H:%M%:%S')
-            article.publication_date = date_string
+                # Set publication date
+                publication_date = datetime.datetime(*(entry.published_parsed[0:6]))
+                date_string = publication_date.strftime('%Y-%m-%d %H:%M%:%S')
+                article.publication_date = date_string
             
-            article.feed = self
-            article.save()
+                article.feed = self
+                article.save()
     
 class Article(models.Model):
     feed = models.ForeignKey(Feed)

@@ -154,11 +154,17 @@ body,
   color: #515253;
 }
 /* ========================================================================
-   Component: buttons
+   Component: buttons and pagination
  ========================================================================== */
 .btn-primary {
   background-color: #564aa3;
 }
 .btn-primary:hover {
   background-color: #564aa3;
+}
+.pagination>.active>a, .pagination>.active>a:focus, 
+.pagination>.active>a:hover, .pagination>.active>span, 
+.pagination>.active>span:focus, .pagination>.active>span:hover {
+  background-color: #564aa3;
+  border-color: #564aa3;
 }
