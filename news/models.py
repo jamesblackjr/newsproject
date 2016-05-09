@@ -28,7 +28,15 @@ class Feed(models.Model):
                 article.description = entry.description
             
                 # Set publication date
-                publication_date = datetime.datetime(*(entry.published_parsed[0:6]))
+                try:
+                    published = entry.published_parsed
+                except AttributeError:
+                    try:
+                        published = entry.updated_parsed
+                    except AttributeError:
+                        published = entry.created_parsed
+                        
+                publication_date = datetime.datetime(*(published[0:6]))
                 date_string = publication_date.strftime('%Y-%m-%d %H:%M%:%S')
                 article.publication_date = date_string
             
