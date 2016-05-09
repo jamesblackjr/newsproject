@@ -13,11 +13,40 @@
     </div>
     <div class="row">
     	<div class="col-xs-12">
-			<ul>
-				{% for feed in feeds %}
-					<li><a href="{{ feed.url }}" title="{{ feed.title }}">{{ feed.title }}</a></li>
-				{% endfor %}
-			</ul>
+           	<div class="panel panel-default">
+               	<div class="panel-body">
+                  	<div class="table-responsive">
+                     	<table id="feed-table" class="table table-striped table-hover">
+                        	<thead>
+                           	 	<tr>
+                              	  	<th class="wd-md">Feed Title</th>
+                              	  	<th>Feed URL</th>
+                              	  	<th>Status</th>
+                           	 	</tr>
+                        	</thead>
+                        	<tbody>
+								{% for feed in feeds %}
+	                           	 	<tr>
+	                              	  	<td>
+											{{ feed.title }}
+	                              	  	</td>
+	                              	  	<td>
+									  	  	<a href="{{ feed.url }}" target="_blank" title="{{ feed.title }}">{{ feed.url }}</a>
+	                              	  	</td>
+	                              	  	<td>
+											{% if feed.is_active %}
+												<span class="mr-sm label label-success">Active</span>
+											{% else %}
+												<span class="mr-sm label label-danger">Inactive</span>
+											{% endif %}
+	                              	  	</td>
+	                           	 	</tr>
+								{% endfor %}
+                        	</tbody>
+                     	</table>
+                  	</div>
+               	</div>
+            </div>
        	</div>
     </div>
 </div>
