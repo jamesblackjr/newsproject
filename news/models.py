@@ -5,7 +5,7 @@ import datetime, feedparser
 class Feed(models.Model):
     title = models.CharField(max_length=200)
     url = models.URLField(unique=True, help_text="Don't forget to add http:// or https:// to the URL")
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     
     def __str__(self):
         return self.title
@@ -16,7 +16,6 @@ class Feed(models.Model):
         
         # Set some fields
         self.title = feed_data.feed.title
-        self.is_active = True
             
         super(Feed, self).save(*args, **kwargs)
         

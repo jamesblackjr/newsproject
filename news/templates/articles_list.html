@@ -11,10 +11,10 @@
        	</div>
        	News Articles
 	</div>
-	{% for row in rows %}
-		<div class="row">
-			{% for entry in row %}
-				<div class="col-md-4">
+	<div class="row">
+		{% for column in columns %}
+			<div class="col-md-4">
+				{% for entry in column %}
 					<div class="panel">
                     	<div class="panel-body bg-purple">
                           	<h3 class="mv-lg">{{entry.title}}</h3>
@@ -33,9 +33,9 @@
                           	</p>
                        	</div>
                     </div>
-				</div>
-			{% endfor %}
-		</div>
-	{% endfor %}
+				{% endfor %}
+			</div>
+		{% endfor %}
+	</div>
 </div>
 {% endblock %}

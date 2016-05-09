@@ -45,8 +45,9 @@ body,
 .topnavbar .navbar-nav > .open > a:focus {
   background-color: transparent;
 }
-.topnavbar .navbar-nav > li > [data-toggle='navbar-search'] {
+.topnavbar .navbar-text {
   color: #ffffff;
+  margin-right: 0px;
 }
 .topnavbar .nav-wrapper {
   background-color: #564aa3;

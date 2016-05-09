@@ -46,12 +46,37 @@
 		                  	</div>
 		               	</a>
 		            </div>
-					<div class="navbar-collapse collapse">
+		            <div class="nav-wrapper">
 						<ul class="nav navbar-nav">
 							<li><a href="{% url 'articles-list' %}">Home</a></li>
 							<li><a href="{% url 'feeds-list' %}">Feeds</a></li>
 						</ul>
-					</div>
+						<div class="navbar-right">
+							{% if request.user.is_authenticated %}
+				                <p class="nav navbar-text">
+										<small>Hello {{ request.user.get_full_name|title|default:request.user.username|title }}, you last logged in at {{ request.user.last_login|date:"l F, j Y" }}.</small>
+								</p>
+				                <ul class="nav navbar-nav">
+				                   <li>
+				                      <a href="{% url 'logout' %}" title="Logout">
+				                         <em class="icon-logout"></em>
+				                      </a>
+				                   </li>
+							   </ul>
+							{% else %}
+				                <p class="nav navbar-text">
+									<small>Welcome guest!</small>
+								</p>
+				                <ul class="nav navbar-nav">
+				                   <li>
+				                      <a href="{% url 'login' %}" title="Login">
+				                         <em class="icon-login"></em>
+				                      </a>
+				                   </li>
+							   </ul>
+							{% endif %}
+						</div>
+		            </div>
 				</nav>
 			</header>
 			
