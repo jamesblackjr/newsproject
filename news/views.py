@@ -4,7 +4,7 @@ from .forms import FeedForm
 
 # Create your views here.
 def articles_list(request):
-    articles = Article.objects.all().order_by('-publication_date')
+    articles = Article.objects.filter(feed__is_active=True).order_by('-publication_date')
     
     rows = [articles[x:x+3] for x in range(0, len(articles), 1)]
     

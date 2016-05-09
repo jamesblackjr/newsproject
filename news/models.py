@@ -16,6 +16,7 @@ class Feed(models.Model):
         
         # Set some fields
         self.title = feed_data.feed.title
+        self.is_active = True
             
         super(Feed, self).save(*args, **kwargs)
         
