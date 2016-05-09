@@ -4,7 +4,7 @@ import datetime, feedparser
 # Create your models here.
 class Feed(models.Model):
     title = models.CharField(max_length=200)
-    url = models.URLField(unique=True)
+    url = models.URLField(unique=True, help_text="Don't forget to add http:// or https:// to the URL")
     is_active = models.BooleanField(default=False)
     
     def __str__(self):

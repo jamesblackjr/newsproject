@@ -6,5 +6,8 @@ class FeedForm(forms.ModelForm):
         model = Feed
         fields = ['url']
         labels = {
-            'url': 'URL'
+            'url': 'URL:'
+        }
+        widgets = {
+            'url': forms.URLInput(attrs={'class': 'form-control'})
         }
