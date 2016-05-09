@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render
 from .models import Article, Feed
 from .forms import FeedForm
-import datetime, feedparser
 
 # Create your views here.
 def articles_list(request):
@@ -29,27 +28,7 @@ def new_feed(request):
         
         if form.is_valid():
             feed = form.save(commit=False)
-            
-            feed_data = feedparser.parse(feed.url)
-            
-            # Set some fields
-            feed.title = feed_data.feed.title
-            feed.url = form.cleaned_data['url']
             feed.save()
-            
-            for entry in feed_data.entries:
-                article = Article()
-                article.title = entry.title
-                article.url = entry.link
-                article.description = entry.description
-                
-                # Set publication date
-                publication_date = datetime.datetime(*(entry.published_parsed[0:6]))
-                date_string = publication_date.strftime('%Y-%m-%d %H:%M%:%S')
-                article.publication_date = date_string
-                
-                article.feed = feed
-                article.save()
                 
             return redirect('feeds-list')
     else:
