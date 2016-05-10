@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from .models import Article, Feed
 from .forms import FeedForm
@@ -20,7 +21,8 @@ def articles_list(request):
     }
     
     return render(request, "articles_list.html", context)
-    
+
+@login_required   
 def feeds_list(request):
     feeds = Feed.objects.all()
     
@@ -30,6 +32,7 @@ def feeds_list(request):
     
     return render(request, "feeds_list.html", context)
     
+@login_required
 def new_feed(request):
     if request.method == "POST":
         # Process our form
