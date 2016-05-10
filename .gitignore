@@ -105,3 +105,8 @@ coverage.xml
 # Django stuff:
 *.log
 *.pot
+
+# SQLite3/PostgreSQL Dump
+postgres-dumpfile.sql
+sqlite-dumpfile.sql
+sqlite.load
