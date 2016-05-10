@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
+from news.views import articles_list
 
 urlpatterns = [
     # Auth
@@ -27,5 +28,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     
     # Custom URLs
+    url(r'^$', articles_list, name='articles-list'),
     url(r'^news/', include('news.urls')),
 ]
