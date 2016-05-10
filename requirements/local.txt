@@ -1,0 +1,8 @@
+-r base.txt
+
+django-debug-toolbar==1.4
+factory-boy==2.7.0
+fake-factory==0.5.7
+python-dateutil==2.5.3
+six==1.10.0
+sqlparse==0.1.19
