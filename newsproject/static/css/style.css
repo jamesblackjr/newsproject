@@ -37,6 +37,9 @@ body,
 .topnavbar .navbar-nav > .open > a:focus {
   color: #312a5d;
 }
+.topnavbar .navbar-right .navbar-nav > li > a,
+.topnavbar .navbar-right .navbar-nav > li > a:hover,
+.topnavbar .navbar-right .navbar-nav > li > a:focus,
 .topnavbar .navbar-nav > .active > a,
 .topnavbar .navbar-nav > .open > a,
 .topnavbar .navbar-nav > .active > a:hover,
@@ -162,6 +165,9 @@ body,
 }
 .btn-primary:hover {
   background-color: #564aa3;
+}
+.pagination>li>a, .pagination>li>span {
+  color: #564aa3;
 }
 .pagination>.active>a, .pagination>.active>a:focus, 
 .pagination>.active>a:hover, .pagination>.active>span, 

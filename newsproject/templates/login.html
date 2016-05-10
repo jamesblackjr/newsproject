@@ -1,22 +1,94 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-
-        <label>{{ form.username.label }}</label>
-        {{ form.username }}
-
-        <label>{{ form.password.label }}</label>
-        {{ form.password }}
-
-        {% if form.errors %}
-            <div class="form-error">
-                <span>Your username and password didn't match. Please try again.</span>
-            </div>
-        {% endif %}
-        
-		<input type="hidden" name="next" value="{% url 'articles-list' %}">
-        <input type="submit" value="login" />
-    </form>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>The News Website</title>
+		
+		<meta name="description" content="My Awesome News Website.">
+		<meta name="author" content="Mr. James A. Black Jr. (mrdesigner@jamesblackjr.com)">
+		<meta name="keywords" content="python, django, jquery, bootstrap, responsive, news, feed, app">
+		
+		<!-- Custom Favicon & App Icons for Apple/Android devices -->
+		<link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/apple-icon-57x57.png' %}">
+		<link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/apple-icon-60x60.png' %}">
+		<link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/apple-icon-72x72.png' %}">
+		<link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon-76x76.png' %}">
+		<link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/apple-icon-114x114.png' %}">
+		<link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/apple-icon-120x120.png' %}">
+		<link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/apple-icon-144x144.png' %}">
+		<link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/apple-icon-152x152.png' %}">
+		<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-icon-180x180.png' %}">
+		<link rel="icon" type="image/png" sizes="192x192"  href="{% static 'img/android-icon-192x192.png' %}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+		<link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicon-96x96.png' %}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+		<link rel="manifest" href="{% static 'img/manifest.json' %}">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="{% static 'img/ms-icon-144x144.png' %}">
+		<meta name="theme-color" content="#ffffff">
+		
+		<!-- Latest compiled and minified FontAwesome CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+		
+		<!-- Latest Simple Line Icons CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.1/css/simple-line-icons.css">
+		
+		<!-- Latest compiled and minified Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		
+		<!-- Custom CSS overrides and Custom CSS styles -->
+		<link rel="stylesheet" href="{% static 'css/base.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	</head>
+	<body>
+		<div class="wrapper">
+	      	<div class="block-center mt-xl wd-xl">
+	         	<div class="panel panel-dark panel-flat">
+	            	<div class="panel-heading bg-purple text-center">
+	               	 	<a href="#">
+	                  	  	<img src="{% static 'img/logo.png' %}" alt="Image" class="block-center img-rounded">
+	               	 	</a>
+	            	</div>
+					
+	            	<div class="panel-body">
+	               	 	<p class="text-center pv">SIGN IN TO CONTINUE.</p>
+						
+	               	 	<form role="form" method="post" class="mb-lg" action="{% url 'login' %}">
+							
+					        {% csrf_token %}
+							
+	                  	  	<div class="form-group has-feedback">
+								<input type="text" id="username" name="username" placeholder="Username" autocomplete="off" required class="form-control">
+	                     		<span class="fa fa-envelope form-control-feedback text-muted"></span>
+	                  	  	</div>
+							
+	                  	  	<div class="form-group has-feedback">
+								<input type="password" name="password" id="password" placeholder="Password" required class="form-control">
+	                     	   	<span class="fa fa-lock form-control-feedback text-muted"></span>
+	                  	  	</div>
+							
+							<input type="hidden" name="next" value="{% url 'articles-list' %}">
+	                  	  	<button type="submit" class="btn btn-block btn-primary mt-lg">Login</button>
+	               	 	</form>
+	            	</div>
+					
+	         	</div>
+	         	<div class="p-lg text-center">
+	            	<span>&copy;</span><span>2016</span> <span>-</span> <span>The News Site</span><br>
+	            	<span>Designed by <a href="http://www.jamesblackjr.com" title="Mr. James Black Jr.">Mr. James A. Black Jr.</a></span>
+	         	</div>
+	      	</div>
+		</div>
+		
+		<!-- Latest compiled and minified jQuery & Bootstrap JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		
+		<!-- Custom App JavaScript -->
+		<script src="{% static 'js/app.js' %}"></script>
+	</body>
+</html>
