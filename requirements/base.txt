@@ -1,3 +1,5 @@
 Django==1.9.6
 feedparser==5.2.1
 psycopg2==2.6.1
+dj-static==0.0.6
+static3==0.7.0

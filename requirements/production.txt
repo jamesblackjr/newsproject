@@ -1,0 +1,4 @@
+-r base.txt
+
+dj-database-url==0.4.1
+uWSGI==2.0.13

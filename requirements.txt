@@ -1,0 +1,2 @@
+# Heroku expects this file to be located in the root directory
+-r ./requirements/production.txt
