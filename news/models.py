@@ -1,4 +1,5 @@
 from django.db import models
+from time import mktime
 import datetime, feedparser
 
 # Create your models here.
@@ -33,7 +34,7 @@ class Feed(models.Model):
                 except AttributeError:
                     published = entry.created_parsed
                     
-            publication_date = datetime.datetime(*(published[0:6]))
+            publication_date = datetime.datetime.fromtimestamp(mktime(published))
             date_string = publication_date.strftime('%Y-%m-%d %H:%M%:%S')
             article.publication_date = date_string
         
