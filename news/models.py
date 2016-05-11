@@ -46,7 +46,7 @@ class Feed(models.Model):
                 article.save()
     
 class Article(models.Model):
-    feed = models.ForeignKey(Feed, blank=True, null=True)
+    feed = models.ForeignKey(Feed)
     title = models.CharField(max_length=200)
     url = models.URLField(verbose_name="URL")
     description = models.TextField()
