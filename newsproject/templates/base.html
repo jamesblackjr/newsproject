@@ -70,31 +70,29 @@
 							<li><a href="{% url 'articles-list' %}">Home</a></li>
 							<li><a href="{% url 'feeds-list' %}">Feeds</a></li>
 						</ul>
-						<div class="navbar-right">
-							{% if request.user.is_authenticated %}
-				                <p class="nav navbar-text">
-										<small>Hello {{ request.user.get_full_name|title|default:request.user.username|title }}, you last logged in at {{ request.user.last_login|date:"l F, j Y" }}.</small>
-								</p>
-				                <ul class="nav navbar-nav">
-				                   <li>
-				                      <a href="{% url 'logout' %}" title="Logout">
-				                         <em class="icon-logout"></em>
-				                      </a>
-				                   </li>
-							   </ul>
-							{% else %}
-				                <p class="nav navbar-text">
+						{% if request.user.is_authenticated %}
+			                <ul class="nav navbar-nav navbar-right">
+								<li>
+									<small>Hello {{ request.user.get_full_name|title|default:request.user.username|title }}, you last logged in at {{ request.user.last_login|date:"l F, j Y" }}.</small>
+								</li>
+			                   	<li>
+			                      	<a href="{% url 'logout' %}" title="Logout">
+			                         	<em class="icon-logout"></em>
+			                      	</a>
+			                   	</li>
+						   </ul>
+						{% else %}
+			                <ul class="nav navbar-nav navbar-right">
+								<li>
 									<small>Welcome guest!</small>
-								</p>
-				                <ul class="nav navbar-nav">
-				                   <li>
-				                      <a href="{% url 'login' %}" title="Login">
-				                         <em class="icon-login"></em>
-				                      </a>
-				                   </li>
-							   </ul>
-							{% endif %}
-						</div>
+								</li>
+			                   	<li>
+			                      	<a href="{% url 'login' %}" title="Login">
+			                         	<em class="icon-login"></em>
+			                      	</a>
+			                   	</li>
+						   </ul>
+						{% endif %}
 		            </div>
 				</nav>
 			</header>
@@ -116,17 +114,19 @@
 	                 	</ul>
 	              	</nav>
 	           	</div>
-		   </aside>
+		   	</aside>
 			
 			<!-- Main Section -->
 			<section>
 				{% block content %}{% endblock %}
 			</section>
 			
-			<!-- Page Footer -->
-			<footer>
-				<span>&copy; 2016 Designed by <a href="http://www.jamesblackjr.com" title="Mr. James Black Jr.">Mr. James A. Black Jr.</a>&nbsp;&nbsp;All Rights Reserved.</span>
-			</footer>
+			{% block footer %}
+				<!-- Page Footer -->
+				<footer>
+					<span>&copy; 2016 Designed by <a href="http://www.jamesblackjr.com" title="Mr. James Black Jr.">Mr. James A. Black Jr.</a>&nbsp;&nbsp;All Rights Reserved.</span>
+				</footer>
+			{% endblock %}
 		</div>
 		
 		<!-- Latest compiled and minified jQuery & Bootstrap JavaScript -->
