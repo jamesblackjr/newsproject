@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 if DJANGO_MODE == 'local':
     DEBUG = True
 else:
-    DEBUG = True
+    DEBUG = False
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
