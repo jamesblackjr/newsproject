@@ -12,6 +12,9 @@ class Feed(models.Model):
         return self.title
         
     def save(self, *args, **kwargs):
+        # Check to see if this is a new feed or not
+        new_feed = self.pk is None
+        
         feed_data = feedparser.parse(self.url)
         
         # Set some fields
@@ -19,27 +22,28 @@ class Feed(models.Model):
             
         super(Feed, self).save(*args, **kwargs)
         
-        for entry in feed_data.entries:
-            article = Article()
-            article.title = entry.title
-            article.url = entry.link
-            article.description = entry.description
+        if new_feed:
+            for entry in feed_data.entries:
+                article = Article()
+                article.title = entry.title
+                article.url = entry.link
+                article.description = entry.description
         
-            # Set publication date
-            try:
-                published = entry.published_parsed
-            except AttributeError:
+                # Set publication date
                 try:
-                    published = entry.updated_parsed
+                    published = entry.published_parsed
                 except AttributeError:
-                    published = entry.created_parsed
+                    try:
+                        published = entry.updated_parsed
+                    except AttributeError:
+                        published = entry.created_parsed
                     
-            publication_date = datetime.datetime.fromtimestamp(mktime(published))
-            date_string = publication_date.strftime('%Y-%m-%d %H:%M:%S')
-            article.publication_date = date_string
+                publication_date = datetime.datetime.fromtimestamp(mktime(published))
+                date_string = publication_date.strftime('%Y-%m-%d %H:%M:%S')
+                article.publication_date = date_string
         
-            article.feed = self
-            article.save()
+                article.feed = self
+                article.save()
     
 class Article(models.Model):
     feed = models.ForeignKey(Feed, blank=True, null=True)
