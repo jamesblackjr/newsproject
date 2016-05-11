@@ -3,17 +3,14 @@ from .models import Feed, Article
 
 # Register your models here.
 @admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):    
-    def article_feed(self, obj):
-        return obj.feed.title
-        
+class ArticleAdmin(admin.ModelAdmin):
     def date_display(self, obj):
         return obj.publication_date.strftime('%Y-%m-%d %H:%M:%S')
         
     date_display.short_description = "Publication Date"
         
-    list_display = ("title", "article_feed", "date_display",)
-    list_display_links = ("title", "article_feed",)
+    list_display = ("title", "date_display",)
+    list_display_links = ("title",)
     list_filter = ("publication_date",)
     search_fields = ("title",)
     

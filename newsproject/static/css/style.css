@@ -160,10 +160,8 @@ body,
 /* ========================================================================
    Component: buttons and pagination
  ========================================================================== */
-.btn-primary {
-  background-color: #564aa3;
-}
-.btn-primary:hover {
+.btn-primary, .btn-primary:active,
+.btn-primary:hover, .btn-primary:focus {
   background-color: #564aa3;
 }
 .pagination>li>a, .pagination>li>span {
