@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 if DJANGO_MODE == 'local':
     DEBUG = True
 else:
-    DEBUG = False
+    DEBUG = True
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
@@ -189,7 +189,7 @@ LOGGING = {
 
 # Admins
 ADMINS = (
-    ('James Black', 'admin@jamesblackjr.com'),
+    ('James Black', 'mrdesigner@jamesblackjr.com'),
 )
 
 if DJANGO_MODE == 'production':
