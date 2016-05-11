@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>The News Website</title>
+		<title>{% block title %} The News Website {% endblock %}</title>
 		
 		<meta name="description" content="My Awesome News Website.">
 		<meta name="author" content="Mr. James A. Black Jr. (mrdesigner@jamesblackjr.com)">
@@ -98,31 +98,33 @@
 			</header>
 			
 			<!-- Sidebar Navigation -->
-	        <aside class="aside">
-	           	<div class="aside-inner">
-	              	<nav data-sidebar-anyclick-close="" class="sidebar">
-	                 	<ul class="nav">
-	                    	<li class="nav-heading">
-	                       		<span>Feed Navigation</span>
-	                    	</li>
-	                    	<li class="active">
-	                       	 	<a href="{% url 'articles-list' %}" title="News Articles">
-	                          		<em class="fa fa-file-o"></em>
-	                          	  	<span>News Articles</span>
-	                       	 	</a>
-	                    	</li>
-	                 	</ul>
-	              	</nav>
-	           	</div>
-		   	</aside>
+			{% block sidebar %}
+		        <aside class="aside">
+		           	<div class="aside-inner">
+		              	<nav data-sidebar-anyclick-close="" class="sidebar">
+		                 	<ul class="nav">
+		                    	<li class="nav-heading">
+		                       		<span>Feed Navigation</span>
+		                    	</li>
+		                    	<li class="active">
+		                       	 	<a href="{% url 'articles-list' %}" title="News Articles">
+		                          		<em class="fa fa-file-o"></em>
+		                          	  	<span>News Articles</span>
+		                       	 	</a>
+		                    	</li>
+		                 	</ul>
+		              	</nav>
+		           	</div>
+			   	</aside>
+			{% endblock %}
 			
 			<!-- Main Section -->
 			<section>
 				{% block content %}{% endblock %}
 			</section>
 			
+			<!-- Page Footer -->
 			{% block footer %}
-				<!-- Page Footer -->
 				<footer>
 					<span>&copy; 2016 Designed by <a href="http://www.jamesblackjr.com" title="Mr. James Black Jr.">Mr. James A. Black Jr.</a>&nbsp;&nbsp;All Rights Reserved.</span>
 				</footer>

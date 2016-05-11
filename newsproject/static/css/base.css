@@ -896,6 +896,7 @@ _:-ms-lang(x),
 }
 .topnavbar .navbar-header .navbar-brand {
   padding: 0;
+  width: 100%;
 }
 .topnavbar .navbar-header .brand-logo > img,
 .topnavbar .navbar-header .brand-logo-collapsed > img {
@@ -955,6 +956,10 @@ _:-ms-lang(x),
   }
   .sidebar-toggle > em {
     color: white;
+  }
+  .topnavbar .navbar-header .brand-logo > img,
+  .topnavbar .navbar-header .brand-logo-collapsed > img {
+    margin: 0 auto;
   }
 }
 .nav-wrapper {
