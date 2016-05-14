@@ -7,4 +7,4 @@ class ArticleSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=200)
     url = serializers.URLField()
     description = serializers.CharField()
-    publication_date = serializers.DateTimeField()
+    publication_date = serializers.DateTimeField(format='%A %B %d, %Y %-I:%M %p')
