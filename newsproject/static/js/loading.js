@@ -1,14 +1,13 @@
 // Output a random loading message...
 function randomLoadingMessage() {
     var lines = new Array(
-        "Locating the required gigapixels to render...",
+		"Locating the required gigapixels to render...",
 		"Please wait, we're testing your patience.",
-        "Spinning up the hamster...",
-        "Shovelling coal into the server...",
-        "Programming the flux capacitor...",
+		"Spinning up the hamster...",
+		"Shovelling coal into the server...",
+		"Programming the flux capacitor...",
 		"Please wait, as if you had any other choice.",
 		"640K ought to be enough for anybody...",
-		"The architects are still drafting...",
 		"Would you prefer chicken, steak, or tofu?",
 		"Pay no attention to the man behind the curtain.",
 		"Please wait, and enjoy the elevator music...",
