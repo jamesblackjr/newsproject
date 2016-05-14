@@ -97,7 +97,7 @@ function renderArticles(objects) {
 	
 	document.getElementById("loading-wrapper").style.display = "none";
 	document.getElementById("articles-wrapper").innerHTML = output;
-	document.getElementById("pagination-wrapper").style.display = "";
+	document.getElementsByClassName("pagination-wrapper")[0].style.display = "";
 }
 
 onload = function () {
