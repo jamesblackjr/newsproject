@@ -95,6 +95,7 @@ function renderArticles(objects) {
 		output += "</div>";
 	}
 	
+	document.getElementById("loading-wrapper").style.display = "none";
 	document.getElementById("articles-wrapper").innerHTML = output;
 }
 

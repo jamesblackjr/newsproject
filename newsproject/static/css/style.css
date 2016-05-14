@@ -198,6 +198,12 @@ body,
    Component: panel images
  ========================================================================== */
 .panel-body img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
+}
+/* ========================================================================
+   Component: Spinkit cutomization
+ ========================================================================== */
+.sk-cube-grid .sk-cube {
+  background-color: #564aa3;
 }
