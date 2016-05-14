@@ -187,8 +187,10 @@ body,
   background-color: #564aa3;
   border-color: #564aa3;
 }
-.pagination-wrapper {
-  padding-left: 240px;
+@media only screen and (min-width: 768px) {
+  .pagination-wrapper {
+	padding-left: 220px;
+  }
 }
 .btn-primary, .btn-primary:active,
 .btn-primary:hover, .btn-primary:focus {
