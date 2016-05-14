@@ -97,10 +97,14 @@ function renderArticles(objects) {
 	
 	document.getElementById("loading-wrapper").style.display = "none";
 	document.getElementById("articles-wrapper").innerHTML = output;
+	document.getElementById("pagination-wrapper").style.display = "";
 }
 
 onload = function () {
+	var loadingMessage = randomLoadingMessage();
 	var currentPage = getQueryString('page');
+	
+	document.getElementById("loading-message").innerHTML = loadingMessage;
 	
 	// Perform the AJAX Get Request
 	ajaxGet('/news/api/articles.json?page=' + currentPage).then(JSON.parse).then(
