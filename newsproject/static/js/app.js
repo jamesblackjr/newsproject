@@ -1,4 +1,6 @@
+// jQuery JavaScript
 $(document).ready(function() {
+	// Load DataTables for Feed List Table
     $('#feed-table').dataTable({
         'paging':   true,  // Table pagination
         'ordering': true,  // Column ordering 

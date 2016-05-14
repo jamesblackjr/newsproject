@@ -1,4 +1,6 @@
 Django==1.9.6
+djangorestframework==3.3.3
+django-filter==0.13.0
 feedparser==5.2.1
 psycopg2==2.6.1
 dj-static==0.0.6

@@ -175,9 +175,8 @@ body,
 /* ========================================================================
    Component: buttons and pagination
  ========================================================================== */
-.btn-primary, .btn-primary:active,
-.btn-primary:hover, .btn-primary:focus {
-  background-color: #564aa3;
+.pager li>a, .pager li>span {
+  border-radius: 3px;
 }
 .pagination>li>a, .pagination>li>span {
   color: #564aa3;
@@ -187,6 +186,13 @@ body,
 .pagination>.active>span:focus, .pagination>.active>span:hover {
   background-color: #564aa3;
   border-color: #564aa3;
+}
+.pagination-wrapper {
+  padding-left: 240px;
+}
+.btn-primary, .btn-primary:active,
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #564aa3;
 }
 /* ========================================================================
    Component: panel images

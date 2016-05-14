@@ -1,53 +1,53 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Page Content -->
-<div class="content-wrapper">
-	<div class="content-heading">
-    	<div class="pull-right">
-          	<div class="btn-group">
-             	<a href="{% url 'new-feed' %}" class="btn btn-default">New Feed</a>
-          	</div>
-       	</div>
-       News Feeds
-    </div>
-    <div class="row">
-    	<div class="col-xs-12">
-           	<div class="panel panel-default">
-               	<div class="panel-body">
-                  	<div class="table-responsive">
-                     	<table id="feed-table" class="table table-striped table-hover">
-                        	<thead>
-                           	 	<tr>
-                              	  	<th class="col-sm-5 wd-md">Feed Title</th>
-                              	  	<th class="col-sm-5">Feed URL</th>
-                              	  	<th class="col-sm-2">Status</th>
-                           	 	</tr>
-                        	</thead>
-                        	<tbody>
-								{% for feed in feeds %}
+	<!-- Page Content -->
+	<div class="content-wrapper">
+		<div class="content-heading">
+	    	<div class="pull-right">
+	          	<div class="btn-group">
+	             	<a href="{% url 'new-feed' %}" class="btn btn-default">New Feed</a>
+	          	</div>
+	       	</div>
+	       News Feeds
+	    </div>
+	    <div class="row">
+	    	<div class="col-xs-12">
+	           	<div class="panel panel-default">
+	               	<div class="panel-body">
+	                  	<div class="table-responsive">
+	                     	<table id="feed-table" class="table table-striped table-hover">
+	                        	<thead>
 	                           	 	<tr>
-	                              	  	<td>
-											{{ feed.title }}
-	                              	  	</td>
-	                              	  	<td>
-									  	  	<a href="{{ feed.url }}" target="_blank" title="{{ feed.title }}">{{ feed.url }}</a>
-	                              	  	</td>
-	                              	  	<td>
-											{% if feed.is_active %}
-												<span class="mr-sm label label-success">Active</span>
-											{% else %}
-												<span class="mr-sm label label-danger">Inactive</span>
-											{% endif %}
-	                              	  	</td>
+	                              	  	<th class="col-sm-5 wd-md">Feed Title</th>
+	                              	  	<th class="col-sm-5">Feed URL</th>
+	                              	  	<th class="col-sm-2">Status</th>
 	                           	 	</tr>
-								{% endfor %}
-                        	</tbody>
-                     	</table>
-                  	</div>
-               	</div>
-            </div>
-       	</div>
-    </div>
-</div>
+	                        	</thead>
+	                        	<tbody>
+									{% for feed in feeds %}
+		                           	 	<tr>
+		                              	  	<td>
+												{{ feed.title }}
+		                              	  	</td>
+		                              	  	<td>
+										  	  	<a href="{{ feed.url }}" target="_blank" title="{{ feed.title }}">{{ feed.url }}</a>
+		                              	  	</td>
+		                              	  	<td>
+												{% if feed.is_active %}
+													<span class="mr-sm label label-success">Active</span>
+												{% else %}
+													<span class="mr-sm label label-danger">Inactive</span>
+												{% endif %}
+		                              	  	</td>
+		                           	 	</tr>
+									{% endfor %}
+	                        	</tbody>
+	                     	</table>
+	                  	</div>
+	               	</div>
+	            </div>
+	       	</div>
+	    </div>
+	</div>
 {% endblock %}
