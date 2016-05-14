@@ -1,7 +1,7 @@
 // Handle a Simple AJAX Get Request
 function ajaxGet(url) {
     return new Promise(function(resolve, reject) {
-        let request = new XMLHttpRequest();
+        var request = new XMLHttpRequest();
         request.open("GET", url);
         request.onload = function() {
             if (request.status === 200) {
@@ -108,6 +108,6 @@ onload = function () {
 	
 	// Perform the AJAX Get Request
 	ajaxGet('/news/api/articles.json?page=' + currentPage).then(JSON.parse).then(
-		(objects) => { this.renderArticles(objects); }
+		function(objects) { return this.renderArticles(objects); }
 	).catch(function(error) { throw new ApplicationError(error); });
 }
