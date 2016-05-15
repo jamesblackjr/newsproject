@@ -10,18 +10,23 @@ def articles_list(request, feed_id=None):
         feed = Feed.objects.get(pk=feed_id)
     else:
         feed = None
+    
+    form = FeedForm
         
     context = {
         'feed': feed,
+        'form': form,
     }
     
     return render(request, "articles_list.html", context)
 
 def feeds_list(request):
     feeds = Feed.objects.all()
+    form = FeedForm
     
     context = {
         'feeds': feeds,
+        'form': form,
     }
     
     return render(request, "feeds_list.html", context)
