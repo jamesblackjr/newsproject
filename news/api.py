@@ -1,15 +1,14 @@
 from datetime import datetime, timedelta
 from rest_framework import generics, status
 from rest_framework.response import Response
-from .models import Article
+from .models import Article, Feed
 from .pagination import LinkHeaderPagination
 from .serializers import ArticleSerializer
 
 class ArticlesList(generics.ListAPIView):
-    queryset = Article.objects.filter(feed__is_active=True).order_by('-publication_date')
     serializer_class = ArticleSerializer
 
-    def list(self, request):
+    def list(self, request, feed_id=None):
         queryset = self.get_queryset()
         page = self.paginate_queryset(queryset)
         
@@ -21,7 +20,15 @@ class ArticlesList(generics.ListAPIView):
         return Response(serializer.data)
     
     def get_queryset(self):
-        queryset = Article.objects.filter(feed__is_active=True).order_by('-publication_date')
+        queryset = Article.objects.order_by('-publication_date')
+        
+        if "feed_id" in self.kwargs:
+            feed_id = self.kwargs['feed_id']
+            feed = Feed.objects.get(pk=feed_id)
+            queryset = queryset.filter(feed=feed)
+        else:
+            queryset = queryset.filter(feed__is_active=True)
+            
         days = self.request.query_params.get('days', None)
         
         if days is not None:

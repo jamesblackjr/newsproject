@@ -1,6 +1,61 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block sidebar %}
+	<!-- Articles Sidebar -->
+    <aside class="aside">
+       	<div class="aside-inner">
+          	<nav data-sidebar-anyclick-close="" class="sidebar">
+             	<ul class="nav">
+                	<li class="nav-heading">
+                   		<span>Feed Navigation</span>
+                	</li>
+                	<li class="active">
+                   	 	<a href="{% url 'articles-list' %}" title="News Articles">
+                      		<em class="icon-grid"></em>
+                      	  	<span>All Articles</span>
+                   	 	</a>
+                	</li>
+					<li>
+						<a href="#nav-settings" title="Feed Settings" data-toggle="collapse" aria-expanded="true">
+							<em class="icon-settings"></em>
+							<span>Feed Settings</span>
+						</a>
+						<ul id="nav-settings" class="nav sidebar-subnav collapse in" aria-expanded="true">
+							<li class="sidebar-subnav-header">Feed Settings</li>
+							<li>
+								<a href="{{ request.path }}?days=7" title="Articles from Last 7 Days">
+									<span>Last 7 Days</span>
+								</a>
+							</li>
+							<li>
+								<a href="{{ request.path }}?days=30" title="Articles from Last 30 Days">
+									<span>Last 30 Days</span>
+								</a>
+							</li>
+							<li>
+								<a href="{{ request.path }}?days=90" title="Articles from Last 90 Days">
+									<span>Last 90 Days</span>
+								</a>
+							</li>
+							<li>
+								<a href="{{ request.path }}?days=180" title="Articles from Last 6 Months">
+									<span>Last 6 Months</span>
+								</a>
+							</li>
+							<li>
+								<a href="{{ request.path }}?days=365" title="Articles from Last 12 Months">
+									<span>Last 12 Months</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+             	</ul>
+          	</nav>
+       	</div>
+   	</aside>
+{% endblock %}
+
 {% block content %}
 	<!-- Page Content -->
 	<div class="content-wrapper">
@@ -10,7 +65,11 @@
 	             	<a href="{% url 'new-feed' %}" class="btn btn-default">New Feed</a>
 	          	</div>
 	       	</div>
-	       	News Articles
+			{% if feed %}
+				{{ feed.title }}
+			{% else %}
+	       		News Articles
+			{% endif %}
 		</div>
 		<div id="loading-wrapper">
 			<div class="sk-cube-grid">
@@ -36,7 +95,7 @@
 {% endblock %}
 
 {% block footer %}
-	<div id="pagination-wrapper"></div>
+	<div id="pagination-wrapper" style="display: none;"></div>
 {% endblock %}
 
 {% block javascript %}

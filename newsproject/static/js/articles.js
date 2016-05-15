@@ -31,6 +31,7 @@ function renderArticles(objects) {
 	
 	if (linkHeader != undefined) {
 		var links = parseLinkHeader(linkHeader);
+		renderPagination(links);
 	}
 	
 	for(var column = 0; column < columns.length; column++) {
@@ -56,14 +57,11 @@ function renderArticles(objects) {
 
 	document.getElementById("loading-wrapper").style.display = "none";
 	document.getElementById("articles-wrapper").innerHTML = output;
-	
-	if (links != undefined) {
-		renderPagination(links);
-	}
+	document.getElementById("pagination-wrapper").style.display = "block";
 }
 
 window.onload = function () {
-	var apiUrl = "/api/news/articles/"
+	var apiUrl = "/api" + window.location.pathname;
 	var loadingMessage = randomLoadingMessage();
 	var currentPage = getQueryString('page') || 1;
 	var daysFilter = getQueryString('days');

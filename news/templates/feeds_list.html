@@ -29,7 +29,7 @@
 									{% for feed in feeds %}
 		                           	 	<tr>
 		                              	  	<td>
-												{{ feed.title }}
+												<a href="{% url 'feed-articles' feed_id=feed.id %}" title="Show articles from {{ feed.title }}">{{ feed.title }}</a>
 		                              	  	</td>
 		                              	  	<td>
 										  	  	<a href="{{ feed.url }}" target="_blank" title="{{ feed.title }}">{{ feed.url }}</a>

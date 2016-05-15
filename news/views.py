@@ -5,10 +5,18 @@ from .models import Feed
 from .forms import FeedForm
 
 # Create your views here.
-def articles_list(request):
-    return render(request, "articles_list.html")
+def articles_list(request, feed_id=None):
+    if feed_id is not None:
+        feed = Feed.objects.get(pk=feed_id)
+    else:
+        feed = None
+        
+    context = {
+        'feed': feed,
+    }
+    
+    return render(request, "articles_list.html", context)
 
-@login_required   
 def feeds_list(request):
     feeds = Feed.objects.all()
     
