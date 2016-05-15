@@ -213,7 +213,25 @@ body,
 /* ========================================================================
    Component: DataTables cutomization
  ========================================================================== */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 480px) {
+  .dataTables_wrapper .dataTables_length, 
+  .dataTables_wrapper .dataTables_filter {
+	padding-top: 10px;
+  }
+  .dataTables_wrapper .dataTables_length, 
+  .dataTables_wrapper .dataTables_info {
+	margin-right: -15px !important;
+  }
+  .dataTables_wrapper .dataTables_filter,
+  .dataTables_wrapper .dataTables_paginate {
+	margin-left: -15px !important;
+  }
+  .dataTables_wrapper .dataTables_info,
+  .dataTables_wrapper .dataTables_paginate {
+	padding-bottom: 10px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
   .dataTables_wrapper .dataTables_length, 
   .dataTables_wrapper .dataTables_filter {
 	padding-top: 10px;
