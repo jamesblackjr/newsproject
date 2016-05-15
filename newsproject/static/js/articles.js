@@ -28,7 +28,10 @@ function renderArticles(objects) {
 	var output = "";
 	
 	var columns = splitArray(objects, 3, true);
-	var links = parseLinkHeader(linkHeader);
+	
+	if (linkHeader != undefined) {
+		var links = parseLinkHeader(linkHeader);
+	}
 	
 	for(var column = 0; column < columns.length; column++) {
 		var articles = columns[column];
@@ -54,17 +57,27 @@ function renderArticles(objects) {
 	document.getElementById("loading-wrapper").style.display = "none";
 	document.getElementById("articles-wrapper").innerHTML = output;
 	
-	renderPagination(links);
+	if (links != undefined) {
+		renderPagination(links);
+	}
 }
 
 window.onload = function () {
+	var apiUrl = "/api/news/articles/"
 	var loadingMessage = randomLoadingMessage();
 	var currentPage = getQueryString('page') || 1;
+	var daysFilter = getQueryString('days');
+	
+	if (daysFilter != undefined) {
+		apiUrl += "?days=" + daysFilter + "&page=" + currentPage
+	} else {
+		apiUrl += "?page=" + currentPage
+	}
 	
 	document.getElementById("loading-message").innerHTML = loadingMessage;
 	
 	// Perform the AJAX Get Request
-	ajaxGet('/api/news/articles/?page=' + currentPage).then(JSON.parse).then(
+	ajaxGet(apiUrl).then(JSON.parse).then(
 		function(objects) { return this.renderArticles(objects); }
 	).catch(function(error) { throw new ApplicationError(error); });
 }

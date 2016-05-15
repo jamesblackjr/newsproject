@@ -33,11 +33,11 @@ function renderPagination(links) {
 	var pagination = "<div class='col-sm-12 text-center'><nav><ul class='pager'>";
 	
 	if (links["prev"] != undefined) {
-		pagination += "<li class='previous'><a href='" + links["prev"].replace('/api/articles', '') + "'><span aria-hidden='true'>←</span> Previous Page</a></li>"
+		pagination += "<li class='previous'><a href='" + links["prev"].replace('/api', '') + "'><span aria-hidden='true'>←</span> Previous Page</a></li>"
 	};
 	
 	if (links["next"] != undefined) {
-		pagination += "<li class='next'><a href='" + links["next"].replace('/api/articles', '') + "'>Next Page <span aria-hidden='true'>→</span></a></li>"
+		pagination += "<li class='next'><a href='" + links["next"].replace('/api', '') + "'>Next Page <span aria-hidden='true'>→</span></a></li>"
 	};
 	
 	pagination += "</ul></nav></div>"
