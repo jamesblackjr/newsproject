@@ -118,6 +118,7 @@ body,
 .sidebar .nav > li > a:hover,
 .sidebar .nav > li > .nav-item:hover {
   color: #9289ca;
+  background-color: transparent;
 }
 .sidebar .nav > li > a > em,
 .sidebar .nav > li > .nav-item > em {

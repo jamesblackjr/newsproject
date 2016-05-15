@@ -33,6 +33,7 @@ function renderArticles(objects) {
 	for(var column = 0; column < columns.length; column++) {
 		var articles = columns[column];
 		
+		// TODO: Cleanup this output code.
 		output += "<div class='col-lg-4'>";
 		
 		for(var article = 0; article < articles.length; article++) {
@@ -63,7 +64,7 @@ window.onload = function () {
 	document.getElementById("loading-message").innerHTML = loadingMessage;
 	
 	// Perform the AJAX Get Request
-	ajaxGet('/news/api/articles/?page=' + currentPage).then(JSON.parse).then(
+	ajaxGet('/api/news/articles/?page=' + currentPage).then(JSON.parse).then(
 		function(objects) { return this.renderArticles(objects); }
 	).catch(function(error) { throw new ApplicationError(error); });
 }

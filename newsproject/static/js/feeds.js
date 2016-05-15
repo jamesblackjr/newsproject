@@ -5,6 +5,8 @@ $(document).ready(function() {
         'paging':   true,  // Table pagination
         'ordering': true,  // Column ordering 
         'info':     true,  // Bottom left status text
+		'lengthMenu': [[-1, 10, 25, 50, 100], ['All', 10, 25, 50, 100]],
+		'pageLength': 25,
         // Text translation options
         // Note the required keywords between underscores (e.g _MENU_)
         oLanguage: {
