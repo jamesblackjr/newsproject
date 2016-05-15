@@ -21,7 +21,7 @@
 	                        	<thead>
 	                           	 	<tr>
 	                              	  	<th class="col-sm-5 wd-md">Feed Title</th>
-	                              	  	<th class="col-sm-5">Feed URL</th>
+	                              	  	<th class="col-md-5 hidden-sm hidden-xs">Feed URL</th>
 	                              	  	<th class="col-sm-2">Status</th>
 	                           	 	</tr>
 	                        	</thead>
@@ -31,7 +31,7 @@
 		                              	  	<td>
 												<a href="{% url 'feed-articles' feed_id=feed.id %}" title="Show articles from {{ feed.title }}">{{ feed.title }}</a>
 		                              	  	</td>
-		                              	  	<td>
+		                              	  	<td class="hidden-sm hidden-xs">
 										  	  	<a href="{{ feed.url }}" target="_blank" title="{{ feed.title }}">{{ feed.url }}</a>
 		                              	  	</td>
 		                              	  	<td>
