@@ -23,92 +23,19 @@ function ajaxGet(url) {
     });
 }
 
-// Parse the Link Header into Seperate Links
-function parseLinkHeader(header) {
-    if (header.length === 0) {
-        throw new Error("Input must not be of zero length");
-    }
-
-    // Split parts by comma
-    var parts = header.split(',');
-    var links = {};
-    // Parse each part into a named link
-    for(var i=0; i<parts.length; i++) {
-        var section = parts[i].split(';');
-        if (section.length !== 2) {
-            throw new Error("Section could not be split on ';'");
-        }
-        var url = section[0].replace(/<(.*)>/, '$1').trim();
-        var name = section[1].replace(/rel="(.*)"/, '$1').trim();
-        links[name] = url;
-    }
-    return links;
-}
-
-// Slpit Array into Equal Chunks for Column Layout
-function splitArray(a, n, balanced) {    
-    if (n < 2)
-        return [a];
-
-    var len = a.length,
-            out = [],
-            i = 0,
-            size;
-
-    if (len % n === 0) {
-        size = Math.floor(len / n);
-        while (i < len) {
-            out.push(a.slice(i, i += size));
-        }
-    }
-
-    else if (balanced) {
-        while (i < len) {
-            size = Math.ceil((len - i) / n--);
-            out.push(a.slice(i, i += size));
-        }
-    }
-
-    else {
-
-        n--;
-        size = Math.floor(len / n);
-        if (len % size === 0)
-            size--;
-        while (i < size * n) {
-            out.push(a.slice(i, i += size));
-        }
-        out.push(a.slice(size * n));
-
-    }
-
-    return out;
-}
-
-// Get the value of a querystring
-function getQueryString(field, url) {
-    var href = url ? url : window.location.href;
-    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
-    var string = reg.exec(href);
-    return string ? string[1] : null;
-};
-
 // Render Articles List on the Page
 function renderArticles(objects) {
-	var column;
 	var output = "";
-	var pagination = "";
 	
 	var columns = splitArray(objects, 3, true);
 	var links = parseLinkHeader(linkHeader);
 	
-	for(column = 0; column < columns.length; column++) {
-		var article;
+	for(var column = 0; column < columns.length; column++) {
 		var articles = columns[column];
 		
 		output += "<div class='col-lg-4'>";
 		
-		for(article = 0; article < articles.length; article++) {
+		for(var article = 0; article < articles.length; article++) {
 			output += "<div class='panel'><div class='panel-body bg-purple'><h3 class='mv-lg'>" +
 			articles[article].title +
 			"</h3></div><div class='panel-body'><p id='description-wrapper'>" +
@@ -122,22 +49,11 @@ function renderArticles(objects) {
 		
 		output += "</div>";
 	}
-	
-	pagination += "<div class='col-sm-12 text-center'><nav><ul class='pager'>"
-	
-	if (links["prev"] != undefined) {
-		pagination += "<li class='previous'><a href='" + links["prev"].replace('/api/articles', '') + "'><span aria-hidden='true'>←</span> Previous Page</a></li>"
-	};
-	
-	if (links["next"] != undefined) {
-		pagination += "<li class='next'><a href='" + links["next"].replace('/api/articles', '') + "'>Next Page <span aria-hidden='true'>→</span></a></li>"
-	};
-	
-	pagination += "</ul></nav></div>"
-	
+
 	document.getElementById("loading-wrapper").style.display = "none";
 	document.getElementById("articles-wrapper").innerHTML = output;
-	document.getElementById("pagination-wrapper").innerHTML = pagination;
+	
+	renderPagination(links);
 }
 
 window.onload = function () {

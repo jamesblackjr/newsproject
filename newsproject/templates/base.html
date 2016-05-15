@@ -136,7 +136,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		
 		<!-- Import jQuery.Truncate Plugin to Truncate HTML descriptions -->
-		<script src="{% static 'js/jquery.truncate.js' %}"></script>
+		<script src="{% static 'vendor/jquery.truncate/jquery.truncate.js' %}"></script>
 		
 		<!-- Latest DataTables JavaScript files -->
 		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
@@ -144,5 +144,8 @@
 		
 		<!-- Custom App JavaScript -->
 		<script src="{% static 'js/app.js' %}"></script>
+		
+		<!-- Page-specific JavaScript -->
+		{% block javascript %}{% endblock %}
 	</body>
 </html>

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 	<!-- Page Content -->
@@ -50,4 +51,9 @@
 	       	</div>
 	    </div>
 	</div>
+{% endblock %}
+
+{% block javascript %}
+	<!-- Custom Feeds List JavaScript -->
+	<script src="{% static 'js/feeds.js' %}"></script>
 {% endblock %}
