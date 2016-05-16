@@ -144,7 +144,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 
@@ -169,6 +169,14 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'news.pagination.LinkHeaderPagination',
     'PAGE_SIZE': 100
 }
+
+# CELERY STUFF
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'America/Chicago'
 
 # LOGGING
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
