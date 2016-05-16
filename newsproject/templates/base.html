@@ -73,7 +73,7 @@
 						{% if request.user.is_authenticated %}
 			                <ul class="nav navbar-nav navbar-right">
 								<li>
-									<small>Hello {{ request.user.get_full_name|title|default:request.user.username|title }}, you last logged in at {{ request.user.last_login|date:"l F, j Y" }}.</small>
+									<small>Hello {{ request.user.get_full_name|title|default:request.user.username|title }}.</small>
 								</li>
 			                   	<li>
 			                      	<a href="{% url 'logout' %}" title="Logout">
@@ -129,6 +129,9 @@
 					<span>&copy; 2016 Designed by <a href="http://www.jamesblackjr.com" title="Mr. James Black Jr.">Mr. James A. Black Jr.</a>&nbsp;&nbsp;All Rights Reserved.</span>
 				</footer>
 			{% endblock %}
+			
+			<!-- Back to Top Button -->
+			<a href="#" class="back-to-top">Back to Top</a>
 		</div>
 		<div id="new-feed-modal" tabindex="-1" role="dialog" aria-labelledby="NewFeedDialog" aria-hidden="true" class="modal fade" style="display: none;">
 			<div class="modal-dialog">
