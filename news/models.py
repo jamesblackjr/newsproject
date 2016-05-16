@@ -17,33 +17,46 @@ class Feed(models.Model):
         
         feed_data = feedparser.parse(self.url)
         
-        # Set some fields
-        self.title = feed_data.feed.title
+        # Set feed title field if available
+        if new_feed:
+            if feed_data.feed.title:
+                self.title = feed_data.feed.title
+            else:
+                self.title = "Undefined"
             
         super(Feed, self).save(*args, **kwargs)
         
         if new_feed:
-            for entry in feed_data.entries:
+            self.get_feed_articles()
+
+    def get_feed_articles(self):
+        feed_data = feedparser.parse(self.url)
+        
+        for entry in feed_data.entries:
+            try:
+                article = Article.objects.get(url=entry.link)
+            except:
                 article = Article()
-                article.title = entry.title
-                article.url = entry.link
-                article.description = entry.description
-        
-                # Set publication date
+            
+            article.title = entry.title
+            article.url = entry.link
+            article.description = entry.description
+
+            # Set publication date
+            try:
+                published = entry.published_parsed
+            except AttributeError:
                 try:
-                    published = entry.published_parsed
+                    published = entry.updated_parsed
                 except AttributeError:
-                    try:
-                        published = entry.updated_parsed
-                    except AttributeError:
-                        published = entry.created_parsed
-                    
-                publication_date = datetime.datetime.fromtimestamp(mktime(published))
-                date_string = publication_date.strftime('%Y-%m-%d %H:%M:%S')
-                article.publication_date = date_string
-        
-                article.feed = self
-                article.save()
+                    published = entry.created_parsed
+            
+            publication_date = datetime.datetime.fromtimestamp(mktime(published))
+            date_string = publication_date.strftime('%Y-%m-%d %H:%M:%S')
+            article.publication_date = date_string
+
+            article.feed = self
+            article.save()
     
 class Article(models.Model):
     feed = models.ForeignKey(Feed)
