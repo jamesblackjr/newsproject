@@ -73,7 +73,7 @@
 						{% if request.user.is_authenticated %}
 			                <ul class="nav navbar-nav navbar-right">
 								<li>
-									<small>Hello {{ request.user.get_full_name|title|default:request.user.username|title }}.</small>
+									<small>Hello, {{ request.user.get_full_name|title|default:request.user.username|title }}</small>
 								</li>
 			                   	<li>
 			                      	<a href="{% url 'logout' %}" title="Logout">

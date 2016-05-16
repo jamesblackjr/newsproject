@@ -26,7 +26,7 @@ function randomLoadingMessage() {
 		"Don't think of purple hippos!",
 		"Dig on the 'X' for buried treasure... ARRR!",
 		"Why don't you order a sandwich?",
-		"Please wait, he bits are flowing slowly today.",
+		"Please wait, the bits are flowing slowly today.",
 		"Pixelating the pixels...",
 		"Adding randomly mispeled words into text...",
 		"Look Ma, no hands!",
