@@ -11,7 +11,7 @@
                    		<span>Feed Navigation</span>
                 	</li>
                 	<li class="active">
-                   	 	<a href="{% url 'articles-list' %}" title="News Articles">
+                   	 	<a href="{% if feed %}{{ request.path }}{% else %}{% url 'articles-list' %}{% endif %}" title="News Articles">
                       		<em class="icon-grid"></em>
                       	  	<span>All Articles</span>
                    	 	</a>
