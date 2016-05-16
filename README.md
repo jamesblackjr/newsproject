@@ -20,6 +20,7 @@ The News Website uses a number of open source projects to work properly:
 * [Django Debug Toolbar] - Displays Various Debug Information.
 * [Django REST Framework] - A powerful and flexible toolkit for building Web APIs.
 * [Celery] - An asynchronous task queue/job queue library.
+* [Redis] - An in-memory data structure store, cache & message broker.
 * [FeedParser] - Parse RSS and Atom feeds in Python.
 * [Psychopg] - A popular PostgreSQL adapter for Python.
 * [PostgreSQL] - Object-Relational DBMS
@@ -42,6 +43,7 @@ Work in progress.
    [Django Debug Toolbar]: <https://github.com/django-debug-toolbar/django-debug-toolbar>
    [Django REST Framework]: <http://www.django-rest-framework.org/>
    [Celery]: <http://www.celeryproject.org/>
+   [Redis]: <http://redis.io/>
    [FeedParser]: <https://github.com/kurtmckee/feedparser>
    [Psychopg]: <http://initd.org/psycopg/>
    [PostgreSQL]: <http://www.postgresql.org/>

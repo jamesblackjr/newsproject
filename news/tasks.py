@@ -1,4 +1,5 @@
-from celery.decorators import task
+from celery.task.schedules import crontab
+from celery.decorators import task, periodic_task
 from celery.utils.log import get_task_logger
 from .models import Feed
 
@@ -13,7 +14,7 @@ def get_feed_articles_task(feed_id):
     
     return feed.get_feed_articles()
     
-@task(name="update_all_feed_articles")
+@periodic_task(run_every=(crontab(minute=0, hour=0)), name="update_all_feed_articles", ignore_result=True)
 def update_all_feed_articles_task():
     """ updates articles for all RSS/Atom feeds """
     feeds = Feed.objects.all()
