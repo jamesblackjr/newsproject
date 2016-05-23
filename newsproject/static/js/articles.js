@@ -24,7 +24,7 @@ function ajaxGet(url) {
 }
 
 // Render Articles List on the Page
-function renderArticles(objects) {
+function renderArticles(articles) {
 	var output = "";
 
 	if (linkHeader != undefined) {
@@ -34,7 +34,7 @@ function renderArticles(objects) {
 
 	// TODO: Cleanup this output code.
 	for(var article = 0; article < articles.length; article++) {
-    	output += "<div class='col-masonry'><div class='panel'><div class='panel-body bg-purple'><h3 class='mv-lg'>" +
+		output += "<div class='col-masonry'><div class='panel'><div class='panel-body bg-purple'><h3 class='mv-lg'>" +
 		articles[article].title +
 		"</h3></div><div class='panel-body'><p id='description-wrapper'>" +
 		jQuery.truncate(articles[article].description, { length: 1000, words: true }) +
