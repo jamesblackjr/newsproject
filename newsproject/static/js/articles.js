@@ -37,7 +37,7 @@ function renderArticles(articles) {
 		output += "<div class='col-masonry'><div class='panel'><div class='panel-body bg-purple'><h3 class='mv-lg'>" +
 		articles[article].title +
 		"</h3></div><div class='panel-body'><p id='description-wrapper'>" +
-		jQuery.truncate(articles[article].description, { length: 1000, words: true }) +
+		articles[article].description +
 		"</p><p class='clearfix'><span class='pull-left'><small class='mr-sm'>" +
 		articles[article].publication_date +
 		"</small></span><span class='pull-right'><small><span><a href='" +

@@ -5,13 +5,13 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+
 		<title>{% block title %} The News Website {% endblock %}</title>
-		
+
 		<meta name="description" content="My Awesome News Website.">
 		<meta name="author" content="Mr. James A. Black Jr. (mrdesigner@jamesblackjr.com)">
 		<meta name="keywords" content="python, django, jquery, bootstrap, responsive, news, feed, app">
-		
+
 		<!-- Custom Favicon & App Icons for Apple/Android devices -->
 		<link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/apple-icon-57x57.png' %}">
 		<link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/apple-icon-60x60.png' %}">
@@ -30,22 +30,22 @@
 		<meta name="msapplication-TileColor" content="#564aa3">
 		<meta name="msapplication-TileImage" content="{% static 'img/ms-icon-144x144.png' %}">
 		<meta name="theme-color" content="#564aa3">
-		
+
 		<!-- Latest compiled and minified FontAwesome CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-		
+
 		<!-- Latest Simple Line Icons CSS -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.1/css/simple-line-icons.css">
-		
+
 		<!-- Latest Spinkit.css Library -->
 		<link rel="stylesheet" href="{% static 'vendor/spinkit.css/spinkit.css' %}">
-		
+
 		<!-- Latest DataTables Bootstrap CSS -->
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.css">
-		
+
 		<!-- Latest compiled and minified Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		
+
 		<!-- Custom CSS overrides and Custom CSS styles -->
 		<link rel="stylesheet" href="{% static 'css/base.css' %}">
 		<link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -96,7 +96,7 @@
 		            </div>
 				</nav>
 			</header>
-			
+
 			<!-- Sidebar Navigation -->
 			{% block sidebar %}
 		        <aside class="aside">
@@ -117,19 +117,19 @@
 		           	</div>
 			   	</aside>
 			{% endblock %}
-			
+
 			<!-- Main Section -->
 			<section>
 				{% block content %}{% endblock %}
 			</section>
-			
+
 			<!-- Page Footer -->
 			{% block footer %}
 				<footer>
 					<span>&copy; 2016 Designed by <a href="http://www.jamesblackjr.com" title="Mr. James Black Jr.">Mr. James A. Black Jr.</a>&nbsp;&nbsp;All Rights Reserved.</span>
 				</footer>
 			{% endblock %}
-			
+
 			<!-- Back to Top Button -->
 			<a href="#" class="back-to-top">Back to Top</a>
 		</div>
@@ -147,7 +147,7 @@
 					    	<div class="col-xs-12">
 					        	<form id="new-feed-form" method="post" action="{% url 'new-feed' %}" class="form-horizontal">
 									{% csrf_token %}
-				
+
 									<div class="form-group">
 										<div class="col-sm-12">
 											{% if form.non_field_errors %}
@@ -159,7 +159,7 @@
 											{% endif %}
 										</div>
 									</div>
-				
+
 			                     	<div class="form-group">
 			                        	<label class="col-sm-3 control-label">{{ form.url.label }}</label>
 			                        	<div class="col-sm-9">
@@ -167,9 +167,9 @@
 											<p class="help-block">{{ form.url.help_text }}</p>
 			                        	</div>
 			                     	</div>
-				
 
-									{% if form.url.errors %}						
+
+									{% if form.url.errors %}
 										<div class="form-group">
 				                    		<div class="col-sm-offset-3 col-sm-9">
 												<div class="form-error">
@@ -191,21 +191,18 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- Latest compiled and minified jQuery & Bootstrap JavaScript -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		
-		<!-- Import jQuery.Truncate Plugin to Truncate HTML descriptions -->
-		<script src="{% static 'vendor/jquery.truncate/jquery.truncate.js' %}"></script>
-		
+
 		<!-- Latest DataTables JavaScript files -->
 		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
-		
+
 		<!-- Custom App JavaScript -->
 		<script src="{% static 'js/app.js' %}"></script>
-		
+
 		<!-- Page-specific JavaScript -->
 		{% block javascript %}{% endblock %}
 	</body>
