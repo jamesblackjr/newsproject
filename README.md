@@ -34,6 +34,7 @@ The News Website uses a number of open source projects to work properly:
 ### Screenshot(s)
 
 ![News Project Screenshot](https://raw.githubusercontent.com/jamesblackjr/newsproject/master/newsproject-screenshot-1.png "News Project Screenshot")
+![News Project Screenshot](https://raw.githubusercontent.com/jamesblackjr/newsproject/master/newsproject-screenshot-2.png "News Project Screenshot")
 
 ### Demo Site
 
