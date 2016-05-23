@@ -14,11 +14,11 @@ function ajaxGet(url) {
                 reject(new Error(request.statusText));
             }
         };
- 
+
         request.onerror = function() {
             reject(new Error("Network Error"));
         };
- 
+
         request.send();
     });
 }
@@ -26,20 +26,20 @@ function ajaxGet(url) {
 // Render Articles List on the Page
 function renderArticles(objects) {
 	var output = "";
-	
+
 	var columns = splitArray(objects, 3, true);
-	
+
 	if (linkHeader != undefined) {
 		var links = parseLinkHeader(linkHeader);
 		renderPagination(links);
 	}
-	
+
 	for(var column = 0; column < columns.length; column++) {
 		var articles = columns[column];
-		
+
 		// TODO: Cleanup this output code.
-		output += "<div class='col-lg-4'>";
-		
+		output += "<div class='col-masonry'>";
+
 		for(var article = 0; article < articles.length; article++) {
 			output += "<div class='panel'><div class='panel-body bg-purple'><h3 class='mv-lg'>" +
 			articles[article].title +
@@ -51,7 +51,7 @@ function renderArticles(objects) {
 			articles[article].url +
 			"' target='_blank' title='Read More'>Read More</a></span></small></span></p></div></div>";
 		}
-		
+
 		output += "</div>";
 	}
 
@@ -65,15 +65,15 @@ window.onload = function () {
 	var loadingMessage = randomLoadingMessage();
 	var currentPage = getQueryString('page') || 1;
 	var daysFilter = getQueryString('days');
-	
+
 	if (daysFilter != undefined) {
 		apiUrl += "?days=" + daysFilter + "&page=" + currentPage
 	} else {
 		apiUrl += "?page=" + currentPage
 	}
-	
+
 	document.getElementById("loading-message").innerHTML = loadingMessage;
-	
+
 	// Perform the AJAX Get Request
 	ajaxGet(apiUrl).then(JSON.parse).then(
 		function(objects) { return this.renderArticles(objects); }

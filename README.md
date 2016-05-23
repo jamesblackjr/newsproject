@@ -31,6 +31,10 @@ The News Website uses a number of open source projects to work properly:
 * [DataTables] - To enhance the accessibility of data in HTML tables.
 * [jQuery] - The Write Less, Do More, JavaScript Library.
 
+### Screenshot(s)
+
+![News Project Screenshot](https://raw.githubusercontent.com/jamesblackjr/newsproject/master/newsproject-screenshot-1.png "News Project Screenshot")
+
 ### Demo Site
 
 Visit the Demo website at https://jb-newsproject.herokuapp.com to see this project in action.
