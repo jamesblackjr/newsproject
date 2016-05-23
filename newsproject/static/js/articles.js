@@ -27,32 +27,22 @@ function ajaxGet(url) {
 function renderArticles(objects) {
 	var output = "";
 
-	var columns = splitArray(objects, 3, true);
-
 	if (linkHeader != undefined) {
 		var links = parseLinkHeader(linkHeader);
 		renderPagination(links);
 	}
 
-	for(var column = 0; column < columns.length; column++) {
-		var articles = columns[column];
-
-		// TODO: Cleanup this output code.
-		output += "<div class='col-masonry'>";
-
-		for(var article = 0; article < articles.length; article++) {
-			output += "<div class='panel'><div class='panel-body bg-purple'><h3 class='mv-lg'>" +
-			articles[article].title +
-			"</h3></div><div class='panel-body'><p id='description-wrapper'>" +
-			jQuery.truncate(articles[article].description, { length: 1000, words: true }) +
-			"</p><p class='clearfix'><span class='pull-left'><small class='mr-sm'>" +
-			articles[article].publication_date +
-			"</small></span><span class='pull-right'><small><span><a href='" +
-			articles[article].url +
-			"' target='_blank' title='Read More'>Read More</a></span></small></span></p></div></div>";
-		}
-
-		output += "</div>";
+	// TODO: Cleanup this output code.
+	for(var article = 0; article < articles.length; article++) {
+    	output += "<div class='col-masonry'><div class='panel'><div class='panel-body bg-purple'><h3 class='mv-lg'>" +
+		articles[article].title +
+		"</h3></div><div class='panel-body'><p id='description-wrapper'>" +
+		jQuery.truncate(articles[article].description, { length: 1000, words: true }) +
+		"</p><p class='clearfix'><span class='pull-left'><small class='mr-sm'>" +
+		articles[article].publication_date +
+		"</small></span><span class='pull-right'><small><span><a href='" +
+		articles[article].url +
+		"' target='_blank' title='Read More'>Read More</a></span></small></span></p></div></div></div>";
 	}
 
 	document.getElementById("loading-wrapper").style.display = "none";
