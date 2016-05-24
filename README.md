@@ -19,6 +19,7 @@ The News Website uses a number of open source projects to work properly:
 * [Django] - The Amazing Web Framework!
 * [Django Debug Toolbar] - Displays Various Debug Information.
 * [Django REST Framework] - A powerful and flexible toolkit for building Web APIs.
+* [Django CORS Headers] - Adds CORS (Cross-Origin Resource Sharing) headers to responses.
 * [Celery] - An asynchronous task queue/job queue library.
 * [Redis] - An in-memory data structure store, cache & message broker.
 * [FeedParser] - Parse RSS and Atom feeds in Python.
@@ -47,6 +48,7 @@ Work in progress.
    [Django]: <https://www.djangoproject.com/>
    [Django Debug Toolbar]: <https://github.com/django-debug-toolbar/django-debug-toolbar>
    [Django REST Framework]: <http://www.django-rest-framework.org/>
+   [Django CORS Headers]: <https://github.com/ottoyiu/django-cors-headers>
    [Celery]: <http://www.celeryproject.org/>
    [Redis]: <http://redis.io/>
    [FeedParser]: <https://github.com/kurtmckee/feedparser>
