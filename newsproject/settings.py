@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'news',
 ]
 
@@ -52,6 +53,7 @@ if DJANGO_MODE == 'local':
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -119,7 +121,7 @@ elif DJANGO_MODE == 'production':
     import dj_database_url
     # Handles DATABASE_URL environment variable
     DATABASES = {'default': dj_database_url.config()}
-    
+
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -169,6 +171,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'news.pagination.LinkHeaderPagination',
     'PAGE_SIZE': 100
 }
+
+# Setup CORS Headers
+CORS_ORIGIN_ALLOW_ALL = True
 
 # CELERY STUFF
 if DJANGO_MODE == 'local':
